@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:16px;background:var(--bg);}
+  .chat{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);width:360px;box-shadow:var(--shadow-3);overflow:hidden;}
+  .hdr{background:var(--biblio-ink);color:#F5F1E8;padding:14px 16px;display:flex;align-items:center;gap:10px;}
+  .av{width:32px;height:32px;border-radius:var(--r-pill);background:var(--biblio-coral);display:flex;align-items:center;justify-content:center;font-size:16px;}
+  .nm{font:600 14px var(--font-sans);}
+  .st{font:400 11px var(--font-sans);color:rgba(245,241,232,.7);}
+  .body{padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--biblio-cream);}
+  .bub{padding:10px 14px;border-radius:16px;max-width:78%;font:400 14px var(--font-sans);line-height:1.45;}
+  .me{background:var(--biblio-coral);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;}
+  .ai{background:#fff;color:var(--fg);border:1px solid var(--border);align-self:flex-start;border-bottom-left-radius:4px;}
+  .typ{display:inline-flex;gap:3px;align-items:center;}
+  .typ span{width:6px;height:6px;background:var(--biblio-gray-3);border-radius:50%;animation:b 1.2s infinite;}
+  .typ span:nth-child(2){animation-delay:.2s;} .typ span:nth-child(3){animation-delay:.4s;}
+  @keyframes b{0%,60%,100%{opacity:.3;}30%{opacity:1;}}
+</style></head>
+<body>
+<div class="chat">
+  <div class="hdr"><div class="av">✨</div><div><div class="nm">MyBibliò</div><div class="st">Online · risposta in ~1s</div></div></div>
+  <div class="body">
+    <div class="bub me">Vorrei un romanzo italiano per l'estate, leggero ma non banale</div>
+    <div class="bub ai">Ti consiglio <i>Le otto montagne</i> di Paolo Cognetti — prosa limpida, paesaggio, amicizia…</div>
+    <div class="bub ai"><span class="typ"><span></span><span></span><span></span></span></div>
+  </div>
+</div>
+</body></html>

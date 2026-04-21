@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:22px;background:var(--bg);display:flex;flex-direction:column;gap:10px;max-width:360px;}
+  .in{width:100%;padding:12px 14px;border:1px solid var(--border-strong);border-radius:var(--r-sm);font:400 15px var(--font-sans);background:#fff;color:var(--fg);}
+  .in:focus{outline:none;border-color:var(--biblio-coral);box-shadow:0 0 0 3px rgba(199,85,80,.15);}
+  .lbl{font:600 12px var(--font-sans);color:var(--fg-soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:-4px;}
+  .search{position:relative;}
+  .search .in{padding-left:38px;}
+  .search::before{content:"🔍";position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;}
+  .chip{padding:6px 12px;border:1px solid var(--border);background:#fff;border-radius:var(--r-pill);font:500 12px var(--font-sans);color:var(--fg);cursor:pointer;}
+  .chip.on{background:var(--biblio-ink);color:#F5F1E8;border-color:var(--biblio-ink);}
+</style></head>
+<body>
+  <div class="lbl">Ricerca</div>
+  <div class="search"><input class="in" placeholder="Autore, titolo, ISBN…"/></div>
+  <div class="chips">
+    <span class="chip on">Tutti</span>
+    <span class="chip">Narrativa</span>
+    <span class="chip">Saggistica</span>
+    <span class="chip">Fantascienza</span>
+    <span class="chip">Poesia</span>
+  </div>
+</body></html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:var(--bg);display:flex;gap:16px;align-items:flex-start;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:var(--r-md);padding:14px;width:170px;box-shadow:var(--shadow-1);}
+  .cover{aspect-ratio:2/3;background:linear-gradient(135deg,#3A4A5C,#2A2A2A);border-radius:var(--r-xs);margin-bottom:12px;box-shadow:var(--shadow-book);display:flex;align-items:center;justify-content:center;padding:14px;}
+  .cover-title{color:#F5F1E8;font:italic 500 15px var(--font-serif);line-height:1.2;}
+  .cover.b{background:linear-gradient(135deg,#C75550,#A8423E);}
+  .cover.c{background:linear-gradient(135deg,#8B6F4E,#5A4A34);}
+  .t{font:italic 500 14px var(--font-serif);color:var(--fg);line-height:1.25;margin-bottom:3px;}
+  .a{font:400 12px var(--font-sans);color:var(--fg-muted);margin-bottom:10px;}
+  .p{display:flex;justify-content:space-between;align-items:center;}
+  .price{font:600 14px var(--font-sans);color:var(--biblio-coral);}
+  .rent{font:500 11px var(--font-sans);color:var(--biblio-rent);}
+</style></head>
+<body>
+  <div class="card">
+    <div class="cover"><div class="cover-title">Il nome<br/>della rosa</div></div>
+    <div class="t">Il nome della rosa</div>
+    <div class="a">Umberto Eco</div>
+    <div class="p"><span class="price">18,90€</span><span class="rent">📦 3,90€/30gg</span></div>
+  </div>
+  <div class="card">
+    <div class="cover b"><div class="cover-title">La coscienza<br/>di Zeno</div></div>
+    <div class="t">La coscienza di Zeno</div>
+    <div class="a">Italo Svevo</div>
+    <div class="p"><span class="price">14,00€</span><span class="rent">📦 2,90€/30gg</span></div>
+  </div>
+  <div class="card">
+    <div class="cover c"><div class="cover-title">Se questo<br/>è un uomo</div></div>
+    <div class="t">Se questo è un uomo</div>
+    <div class="a">Primo Levi</div>
+    <div class="p"><span class="price">12,50€</span><span class="rent">📦 2,50€/30gg</span></div>
+  </div>
+</body></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:var(--bg);display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .btn{font:500 14px var(--font-sans);padding:11px 22px;border-radius:var(--r-sm);border:none;cursor:pointer;transition:all var(--dur-base) var(--ease-out);display:inline-flex;align-items:center;gap:8px;}
+  .primary{background:var(--biblio-coral);color:#fff;}
+  .primary:hover{background:var(--biblio-coral-dark);}
+  .secondary{background:transparent;color:var(--biblio-ink);border:1px solid var(--biblio-ink);}
+  .rent{background:var(--biblio-rent);color:#F5F1E8;}
+  .ghost{background:transparent;color:var(--biblio-coral);}
+  .plus{background:var(--biblio-ink);color:var(--biblio-gold);border:1px solid var(--biblio-gold);}
+  .icon{background:#fff;border:1px solid var(--border);width:40px;height:40px;border-radius:var(--r-pill);padding:0;display:inline-flex;align-items:center;justify-content:center;}
+</style></head>
+<body>
+  <button class="btn primary">🛒 Aggiungi al carrello</button>
+  <button class="btn rent">📦 Noleggia 30gg</button>
+  <button class="btn secondary">Scopri di più</button>
+  <button class="btn ghost">Vedi tutti →</button>
+  <button class="btn plus">✨ Attiva Plus</button>
+  <button class="btn icon" aria-label="Wishlist">❤️</button>
+</body></html>

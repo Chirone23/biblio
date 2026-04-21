@@ -1,0 +1,137 @@
+/* UI-kit-specific layout helpers. Tokens live in ../../colors_and_type.css */
+body { margin: 0; min-height: 100vh; }
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+/* Top nav */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(245, 241, 232, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  cursor: pointer;
+}
+.nav-logo .accent { color: var(--biblio-coral); }
+.nav-links { display: flex; gap: 24px; }
+.nav-link {
+  font: 500 14px var(--font-sans);
+  color: var(--fg);
+  cursor: pointer;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color var(--dur-fast), border-color var(--dur-fast);
+}
+.nav-link:hover { color: var(--biblio-coral); }
+.nav-link.active { color: var(--biblio-coral); border-bottom-color: var(--biblio-coral); }
+.nav-spacer { flex: 1; }
+.nav-actions { display: flex; gap: 6px; align-items: center; }
+.nav-icon {
+  width: 40px; height: 40px;
+  border-radius: var(--r-pill);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  display: inline-flex; align-items: center; justify-content: center;
+  position: relative;
+  transition: background var(--dur-fast);
+}
+.nav-icon:hover { background: var(--biblio-cream-deep); }
+.nav-icon .pip {
+  position: absolute; top: 6px; right: 6px;
+  background: var(--biblio-coral); color: #fff;
+  font: 700 10px var(--font-sans);
+  min-width: 16px; height: 16px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 4px;
+}
+
+/* Page wrapper */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 96px;
+  width: 100%;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+/* Buttons */
+.btn {
+  font: 500 15px var(--font-sans);
+  padding: 12px 22px;
+  border-radius: var(--r-sm);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background var(--dur-base) var(--ease-out),
+              color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out),
+              transform var(--dur-fast);
+  text-decoration: none;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--biblio-coral); color: #fff; box-shadow: var(--shadow-1); }
+.btn-primary:hover { background: var(--biblio-coral-dark); box-shadow: var(--shadow-2); }
+.btn-secondary { background: transparent; color: var(--fg); border: 1px solid var(--biblio-ink); }
+.btn-secondary:hover { background: var(--biblio-ink); color: var(--biblio-cream); }
+.btn-rent { background: var(--biblio-rent); color: var(--biblio-cream); }
+.btn-rent:hover { background: #6e5739; }
+.btn-ghost { background: transparent; color: var(--biblio-coral); padding-left: 0; padding-right: 0; }
+.btn-ghost:hover { color: var(--biblio-coral-dark); }
+.btn-plus { background: var(--biblio-ink); color: var(--biblio-gold); border: 1px solid var(--biblio-gold); }
+.btn-plus:hover { background: #3d3a36; }
+.btn-lg { padding: 14px 28px; font-size: 16px; }
+.btn-sm { padding: 8px 14px; font-size: 13px; }
+.btn-block { width: 100%; justify-content: center; }
+
+/* Floating chat launcher */
+.chat-fab {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 40;
+  background: var(--biblio-ink);
+  color: var(--biblio-cream);
+  border: none;
+  border-radius: var(--r-pill);
+  padding: 14px 20px;
+  font: 500 14px var(--font-sans);
+  cursor: pointer;
+  box-shadow: var(--shadow-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.chat-fab:hover { transform: translateY(-2px); }
+.chat-fab .av {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--biblio-coral);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}

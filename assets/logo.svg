@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  
+  <g font-family="Lora, Georgia, serif" font-weight="500" fill="#2A2A2A">
+    <text x="0" y="56" font-size="52" letter-spacing="-1.5">Biblio</text>
+    
+    <path d="M198 15 l-9 8" stroke="#C75550" stroke-width="3.5" stroke-linecap="round" fill="none"></path>
+  </g>
+</svg>

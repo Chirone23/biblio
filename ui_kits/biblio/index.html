@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Bibliò — UI Kit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="./kit.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="./data.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="./Shell.jsx"></script>
+<script type="text/babel" src="./BookCard.jsx"></script>
+<script type="text/babel" src="./Home.jsx"></script>
+<script type="text/babel" src="./Catalog.jsx"></script>
+<script type="text/babel" src="./BookDetail.jsx"></script>
+<script type="text/babel" src="./Account.jsx"></script>
+<script type="text/babel" src="./Plus.jsx"></script>
+<script type="text/babel" src="./Checkout.jsx"></script>
+<script type="text/babel" src="./Onboarding.jsx"></script>
+<script type="text/babel" src="./RentVsBuy.jsx"></script>
+<script type="text/babel" src="./Mobile.jsx"></script>
+<script type="text/babel" src="./MyBiblioChat.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect } = React;
+
+function App() {
+  const initialRoute = localStorage.getItem('biblio-route') || 'home';
+  const initialBookId = localStorage.getItem('biblio-book');
+  const [route, setRoute] = useState(initialRoute);
+  const [book, setBook] = useState(
+    initialBookId ? window.BIBLIO_BOOKS.find(b => b.id === initialBookId) : null
+  );
+  const [chatOpen, setChatOpen] = useState(false);
+  const [onboarding, setOnboarding] = useState(() => !localStorage.getItem('biblio-seen'));
+
+  useEffect(() => { localStorage.setItem('biblio-route', route); }, [route]);
+  useEffect(() => { if (book) localStorage.setItem('biblio-book', book.id); }, [book]);
+
+  useEffect(() => { window.__openChat = () => setChatOpen(true); }, []);
+  const closeOnboarding = () => { localStorage.setItem('biblio-seen','1'); setOnboarding(false); };
+
+  const openBook = (b) => { setBook(b); setRoute('book'); window.scrollTo(0,0); };
+  const go = (r) => { setRoute(r); window.scrollTo(0,0); };
+
+  return (
+    <div className="app">
+      <Nav route={route} setRoute={go} />
+      <main className="page">
+        {route === 'home' && <Home setRoute={go} openBook={openBook} />}
+        {route === 'catalog' && <Catalog openBook={openBook} />}
+        {route === 'book' && <BookDetail book={book} setRoute={go} openBook={openBook} />}
+        {route === 'account' && <Account openBook={openBook} />}
+        {route === 'plus' && <PlusPage setRoute={go} />}
+        {route === 'checkout' && <Checkout setRoute={go} />}
+        {route === 'rentbuy' && <RentVsBuy setRoute={go} />}
+        {route === 'mobile' && <MobileFrames setRoute={go} />}
+      </main>
+      <ChatFab onClick={()=>setChatOpen(true)} open={chatOpen}/>
+      <MyBiblioChat open={chatOpen} onClose={()=>setChatOpen(false)} openBook={openBook}/>
+      {onboarding && <Onboarding onClose={closeOnboarding}/>}
+      {!onboarding && (
+        <button onClick={()=>setOnboarding(true)} style={{
+          position:'fixed', bottom: 24, left: 24, zIndex:30,
+          background:'transparent', border:'1px dashed var(--border-strong)',
+          color:'var(--fg-muted)', font:'500 11px var(--font-sans)',
+          padding:'6px 10px', borderRadius:'var(--r-pill)', cursor:'pointer'
+        }}>↻ Rivedi onboarding</button>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
